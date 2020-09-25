@@ -1,0 +1,286 @@
+* {box-sizing: border-box;}
+body,html{
+	height: 100vh;
+}
+body{
+	margin: 0;
+	color: white;
+	display: grid;
+	grid-template-columns:  10% 45% auto;
+	grid-template-rows: 10% auto 8%;
+	grid-template-areas: 
+	 " header header header"
+	 " sect1 sect2 sect3"
+	 " footer footer footer"
+
+}
+header{
+	grid-area: header;
+	background-color: black;
+}
+section:nth-of-type(1){
+	grid-area: sect1;
+	background-color:#202127;
+	text-align: center;
+}
+section:nth-of-type(2){
+	grid-area: sect2;
+	background-color: #202127;
+	text-align: justify;
+	
+
+}
+section:nth-of-type(3){
+	grid-area: sect3;
+	background-color: #202127;
+}
+footer{
+	grid-area: footer;
+	background-color:#342E2E;
+	text-align: center;
+}
+
+header{
+	background:black;
+	color: white;
+	font-size: 24px Rubik;
+
+}
+header a{
+	color:#f2ffff;
+	text-decoration:none;
+	font-size: 16px;
+}
+header a:hover{
+	background-color: #777;
+}
+header ul{
+	margin: 0;
+	padding: 0;
+	
+}
+.imga{
+	display: inline-block;
+}
+header li{
+	float: left;
+	display: inline;
+	padding: 0 20px 0 10px;
+}
+head #menu{
+	float: left;
+}
+header #menu img{
+	margin: 0;
+	width: 308;
+	height: 90px;
+	margin-top: 0px;
+}
+header nav{
+	float: right;
+	margin-top: 10px;
+	}
+	#mybody{
+		margin: 0px;
+	}
+	#mybody .bbody{
+		float: left;
+		text-align: left;
+		width: 30%;
+		padding: 80px;
+
+	}
+	.bbody img{
+		width: 300px;
+		height: 400px;		
+	}
+	
+	.bbody h2{
+		font-family: Alegreya;
+  		font-weight: Bold Italic;
+  		font-size: 24px;
+	}
+	.bbody #hire{
+    background-color: #3718F8;
+	border-radius: 50px;
+	color: white;
+	width: 150px;	
+	height: 50px;     
+  	font-family: Alegreya;
+  	font-weight: ExtraBold Italic;
+  	font-size: 24px;  
+  	text-align: center;
+  	color: white;
+		
+	}
+	.bbody #mywork{
+	background-color: #ffffff;
+	color: black;
+	 font-family: Alegreya;
+     font-weight:  Italic;
+     font-size: 24px;  
+     height: 50px;
+     width: 200px;	
+	}
+	#mine{
+		float: left;
+		opacity: 0.5;
+	}
+	
+	.bbody a{
+		text-decoration:none;
+	}
+	.bbody #mine{
+		background-image:url('assets/mine.png');
+		color: black;
+	}
+	.bare {
+  width: 426px;
+  height: 23px;
+  background: rgba(214,216,239,1);
+  opacity: 1;  
+  border-top-left-radius: 70px;
+  border-top-right-radius: 70px;
+  border-bottom-left-radius: 70px;
+  border-bottom-right-radius: 70px;
+  overflow: hidden;
+}
+#about{
+	margin-right: 100px;
+	font-size: 24px;
+}
+#skills{
+	margin-left: 100px;
+}
+.servicebody{
+	background-color:white;
+	color: green;
+}
+
+input[type=text], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+input[type=password], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: blue;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-left: 150px;
+}
+input[type=reset] {
+  background-color: red;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  
+}
+.contact{
+	margin: 50px 80px 40px 80px;
+	border:solid;
+	background-color: #16293A;
+}
+.contact h2{
+	text-align: center;
+}
+.imgcontact{
+	width: 50px;
+	height: 50px;
+}
+#contact2{
+	margin: 45px 200px 35px 100px;
+	border:solid;
+	background-color: #16293A;
+	padding: 0px 20px 0px 110px;
+
+}
+#singupf{
+	margin: 0px 0px 0px 290px;
+}
+#formsig{
+	background-color: #4099A5;
+	margin: 25px 0px 20px 290px;
+	border-radius: 50px;
+	float: right;
+}
+#formslog{
+	background-color: #4099A5;
+	margin: 25px 0px 20px 290px;
+	border-radius: 50px;
+	float: right;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 50px;  
+}
+
+button:hover {
+  opacity:1;
+}
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+@media (max-width: 308px){
+	body{
+	margin: 0;
+	color: white;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: repeat(auto, 3);
+	grid-template-areas: 	 
+	  "header"
+	 "sect2"
+	 "sect3"
+	 "footer"
+}
+		header #menu,
+		header nav,header  nav li{
+			float: none;
+			text-align: center;
+			width: 100%;
+		}
+		header{
+			padding-bottom: 20PX;
+		}
+		#mybody #myprofile #myservice #myblog {
+			margin-top: 40px;
+			display: block;
+			width: 100%
+		}
+		.servicebox{
+			display: block;
+		}
+
+}

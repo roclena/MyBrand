@@ -1,0 +1,192 @@
+* {box-sizing: border-box;}
+body{
+	font:15px/1.5 Arial;
+	color: white;
+	background-color: black;
+	padding: 0;
+	margin: 0;
+}
+.container{
+	width:80%;
+	margin: auto;
+	overflow: hidden;
+	
+}
+header{
+	background:black;
+	color: white;
+	font-size: 24px Rubik;
+
+}
+header a{
+	color:#f2ffff;
+	text-decoration:none;
+	font-size: 16px;
+}
+header a:hover{
+	background-color: #777;
+}
+header ul{
+	margin: 0;
+	padding: 0;
+	
+}
+.imga{
+	display: inline-block;
+}
+header li{
+	float: left;
+	display: inline;
+	padding: 0 20px 0 10px;
+}
+head #menu{
+	float: left;
+}
+header #menu img{
+	margin: 0;
+	width: 308;
+	height: 90px;
+	margin-top: 0px;
+}
+header nav{
+	float: right;
+	margin-top: 10px;
+	}
+
+	footer{
+		padding: 5px;
+		bottom: : 0px;
+		background-color: #342E2E;
+		text-align: center;
+	}
+	#mybody{
+		background-color: #93CBD8;
+	}
+	input[type=text], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;  
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+input[type=password], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;  
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: blue;
+  color: white;
+  padding: 12px 20px;
+  border: none; 
+  cursor: pointer;
+  margin-left: 150px;
+}
+input[type=reset] {
+  background-color: red;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  
+}
+#loginform{
+	background-color:#1C2764;
+	margin: 8px 300px 10px 300px;
+	border-radius: 10px;
+	
+}
+#formsig{
+	background-color:#3F35A7;
+	margin: 10px 250px 0px 300px;
+	border-radius: 40px;
+	text-align:center;
+}
+#forsig input button{
+	margin: 0px 300px 0px 300px;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 50px;  
+}
+
+button:hover {
+  opacity:1;
+}
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+p{
+	text-align: center;
+	font-size: 24px;
+}
+
+.uu{
+	display: inline-block;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+.container {
+  padding: 16px;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+#loginform{
+
+}
+
+
+	@media (max-width: 308px){
+		header #menu,
+		header nav,header  nav li{
+			float: none;
+			text-align: center;
+			width: 100%;
+		}
+		header{
+			padding-bottom: 20PX;
+		}
+		
+	}
