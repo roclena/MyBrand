@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device,initial-scale=1">
+		<meta charset="UTF-8">
+		<meta http-equiv="x-UA-Compatible" content="ie=edge">
+		<title>Ngabonziza</title>
+		<link rel="stylesheet" href="css/admin.css">
+	</head>
+	<body>		
+		<header></header>
+		<header>
+			<div class="container">
+				<div id="menu">	
+				<div class="imga">
+						<img src="assets/Logo.png">
+				    </div>				
+					<nav class="imga">
+						<ul>
+							
+							<li><a href="dashboad.html">Profile</a></li>
+							<li><a href="article.html">Article</a></li>
+							<li><a href="queries.html">Queries</a></li>
+							
+						</ul>
+					</nav>
+					
+				</div>
+				
+			</div>
+		</header>
+		<header></header>			
+		<section>
+		  <img  class="userimage" src="assets/pro.jpg">
+		  <a href="dashboard.html"><p class="dbutton">Profile</p></a>
+		  <a href="article.html"><p class="dbutton">Article</p></a>
+		  <a href="queries.html"><p class="dbutton">Queries</p></a> 
+		  <a href="index.html"> <p class="dbutton" id="logout">logout</p></a>
+
+		</section>
+		<section> 
+			<div id="articlepost">
+				<form action="#">    					
+    					 <h2>Article Title</h2>   					
+    					 <input type="text" id="lname" name="lastname">   					
+   				     	 <textarea id="subject" name="subject" placeholder="" style="height:200px"></textarea>
+   						 <input   type="submit" value="post">
+  					</form>
+
+			</div>
+			<div id="articleview">
+				<table>
+					<tr>
+						<th>Date</th>
+						<th>Title</th>
+						<th>comments</th>
+						<th>Action</th>
+					</tr>
+					<tr>
+						<td>23rd August 2020</td>
+						<td>Learn to Design a website in one Hour</td>
+						<td>
+							<p>Peter</p>
+							<p>Wow nice work just go ahead</p>
+						</td>
+						<td>
+							<form action="postedarticle.html">
+							<input   type="submit" value="View">
+							</form>
+							<form action="">
+							<input   type="submit" value="Update">
+							</form>
+							<form action="">
+							<input   type="submit" value="Delete">
+							</form>
+						</td>
+					</tr>
+										<tr>
+						<td>24th September</td>
+						<td>Build a responsiveness website</td>
+						<td>
+							<p>john</p>
+							<p>it helps</p>
+							<p>Peter</p>
+							<p>Wow nice work just go ahead</p>
+						</td>
+						<td>
+							<form action="">
+							<input   type="submit" value="View">
+							</form>
+							<form action="">
+							<input   type="submit" value="Update">
+							</form>
+							<form action="">
+							<input   type="submit" value="Delete">
+							</form>
+						</td>
+					</tr>
+				</table>
+				
+			</div>
+		</section>
+		<section> </section>		
+		<footer>
+			<p>copyright &copy 2020, Ngabonziza Roger Clement, All rights Reserved</p>
+		</footer>
+	</body>
+</html>
