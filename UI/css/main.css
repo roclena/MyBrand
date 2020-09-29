@@ -83,6 +83,10 @@ header nav{
 	#mybody{
 		margin: 0px;
 	}
+	.bbody #hire button{
+		text-decoration: none;
+		color: white;
+	}
 	#mybody .bbody{
 		float: left;
 		text-align: left;

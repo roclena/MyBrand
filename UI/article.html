@@ -32,7 +32,8 @@
 		<header></header>			
 		<section>
 		  <img  class="userimage" src="assets/pro.JPG">
-		  <a href="dashboard.html"><p class="dbutton">Profile</p></a>
+		  <a href="dashboard.html"><p class="dbutton">Dashboard</p></a>
+		  <a href="Adminprofile.html"><p class="dbutton">Profile</p></a>
 		  <a href="article.html"><p class="dbutton">Article</p></a>
 		  <a href="queries.html"><p class="dbutton">Queries</p></a> 
 		  <a href="index.html"> <p class="dbutton" id="logout">logout</p></a>
@@ -56,46 +57,64 @@
 						<th>comments</th>
 						<th>Action</th>
 					</tr>
-					<tr>
-						<td>23rd August 2020</td>
-						<td>Learn to Design a website in one Hour</td>
-						<td>
-							<p>Peter</p>
-							<p>Wow nice work just go ahead</p>
-						</td>
-						<td>
-							<form action="postedarticle.html">
-							<input   type="submit" value="View">
-							</form>
-							<form action="">
-							<input   type="submit" value="Update">
-							</form>
-							<form action="">
-							<input   type="submit" value="Delete">
-							</form>
-						</td>
-					</tr>
-										<tr>
-						<td>24th September</td>
-						<td>Build a responsiveness website</td>
-						<td>
-							<p>john</p>
+				    <tr>
+        				<td rowspan="3">24th September</td>
+        				<td  rowspan="3">Build a responsiveness website</td>
+        				<td rowspan="3">
+        					<p class="name">john</p>
 							<p>it helps</p>
-							<p>Peter</p>
+							<p class="name">Peter</p>
 							<p>Wow nice work just go ahead</p>
 						</td>
-						<td>
-							<form action="">
-							<input   type="submit" value="View">
+        				<td >
+        					<form action="postedarticle.html">
+								<input   type="submit" value="View">
 							</form>
-							<form action="">
-							<input   type="submit" value="Update">
+        				</td>
+        			</tr>
+       				 <tr>        	
+        				<td class="uparticle">
+              				<form action="postedarticle.html">
+								<input   type="submit" value="Update">
 							</form>
-							<form action="">
-							<input   type="submit" value="Delete">
-							</form>
+        				</td>
+        			</tr>
+       			    <tr>        	
+        				<td class="delarticle" >
+              				<form action="postedarticle.html">
+								<input   type="submit" value="Delete">
+							</form>		
+        				</td>
+        			</tr>
+					<tr>
+						<td rowspan="3">24th September</td>
+						<td rowspan="3">Build a responsiveness website</td>
+						<td rowspan="3">
+							<p class="name"> john</p>
+							<p>it helps</p>
+							<p class="name">Peter</p>
+							<p>Wow nice work just go ahead</p>
 						</td>
-					</tr>
+        				<td >
+        					<form action="postedarticle.html">
+								<input   type="submit" value="View">
+							</form>
+        				</td>
+        			</tr>
+       				 <tr>        	
+        				<td class="uparticle">
+              				<form action="postedarticle.html">
+								<input   type="submit" value="Update">
+							</form>
+        				</td>
+        			</tr>
+       			    <tr>        	
+        				<td class="delarticle">
+              				<form action="postedarticle.html">
+								<input   type="submit" value="Delete">
+							</form>		
+        				</td>
+        			</tr>
 				</table>
 				
 			</div>
