@@ -1,11 +1,30 @@
 * {box-sizing: border-box;}
+body,html{
+	height: 100vh;
+}
 body{
 	font:15px/1.5 Arial;
 	color: white;
 	background-color: black;
 	padding: 0;
 	margin: 0;
+	grid-template-columns:  100%;
+	grid-template-rows: repeat(auto,3);
+	grid-template-areas: 
+	 " header"	
+	 "sect" 		
+	 "footer"
+
 }
+ header{
+ 	grid-area: header;
+ }
+ section{
+ 	grid-area: sect;
+ }
+ footer{
+ 	grid-area: footer;
+ }
 .container{
 	width:80%;
 	margin: auto;
@@ -176,17 +195,17 @@ button:hover {
 #loginform{
 
 }
+@media only screen and (min-width: 768px){
+	body{
+	margin: 0;
+	color: white;
+	display: grid;
+	grid-template-columns:  100%;
+	grid-template-rows: 10% auto  8%;
+	grid-template-areas: 
+	 " header "	
+	 " sect"	
+	 " footer"
 
-
-	@media (max-width: 308px){
-		header #menu,
-		header nav,header  nav li{
-			float: none;
-			text-align: center;
-			width: 100%;
-		}
-		header{
-			padding-bottom: 20PX;
-		}
-		
-	}
+}
+}

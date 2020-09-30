@@ -5,13 +5,14 @@ body{
 	margin: 0;
 	color: white;
 	display: grid;
-	grid-template-columns:  10% 30% 30% 30%;
-	grid-template-rows: 10% 10% auto 8%;
+	grid-template-columns:  100%;
+	grid-template-rows: repeat(auto,5);
 	grid-template-areas: 
-	 " header header header header"
-	 " main main main main"
-	 " sect1 sect2 sect3 sect4"
-	 " footer footer footer footer"
+	 " header"
+	 " main"
+	 " sect2" 
+	 "sect3"
+	 " footer"
 
 }
 main{
@@ -184,4 +185,20 @@ header nav{
 .servicebody{
 	background-color:white;
 	color: green;
+}
+@media only screen and (min-width: 768px){
+	body{
+	margin: 0;
+	color: white;
+	display: grid;
+	grid-template-columns:  10% 30% 30% 30%;
+	grid-template-rows: 10% 10% auto 8%;
+	grid-template-areas: 
+	 " header header header header"
+	 " main main main main"
+	 " sect1 sect2 sect3 sect4"
+	 " footer footer footer footer"
+
+}
+
 }

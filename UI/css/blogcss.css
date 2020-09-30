@@ -5,13 +5,14 @@ body{
 	margin: 0;
 	color: white;
 	display: grid;
-	grid-template-columns:  5% 30% 30% 30% 5%;
-	grid-template-rows: 10% 35% auto  8%;
+	grid-template-columns:  100%;
+	grid-template-rows: repeat(auto,5);
 	grid-template-areas: 
-	 " header header header header header"
-	 " main main main main main"
-	 " sect1 sect2 sect3 sect4 sect5"	
-	 " footer footer footer footer footer"
+	 " header"
+	 " main"
+	 "sect2" 
+	 "sect3" 	
+	 "footer"
 
 }
 main{
@@ -130,4 +131,19 @@ header nav{
 #mobile{
 	width: 300px;
 	height: 200px;
+}
+@media only screen and (min-width: 768px){
+	body{
+	margin: 0;
+	color: white;
+	display: grid;
+	grid-template-columns:  5% 30% 30% 30% 5%;
+	grid-template-rows: 10% 35% auto  8%;
+	grid-template-areas: 
+	 " header header header header header"
+	 " main main main main main"
+	 " sect1 sect2 sect3 sect4 sect5"	
+	 " footer footer footer footer footer"
+
+}
 }

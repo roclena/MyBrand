@@ -6,12 +6,13 @@ body{
 	margin: 0;
 	color: white;
 	display: grid;
-	grid-template-columns:  10% 45% auto;
-	grid-template-rows: 10% auto 8%;
+	grid-template-columns:  100%;
+	grid-template-rows: repeat(auto,4);
 	grid-template-areas: 
-	 " header header header"
-	 " sect1 sect2 sect3"
-	 " footer footer footer"
+	 " header"	 
+	 "sect2"
+	 "sect3"
+	 "footer"
 
 }
 header{
@@ -260,35 +261,18 @@ button:hover {
   float: left;
   width: 50%;
 }
-@media (max-width: 308px){
-	body{
+@media only screen and (min-width: 768px){
+body{
 	margin: 0;
 	color: white;
 	display: grid;
-	grid-template-columns: 100%;
-	grid-template-rows: repeat(auto, 3);
-	grid-template-areas: 	 
-	  "header"
-	 "sect2"
-	 "sect3"
-	 "footer"
-}
-		header #menu,
-		header nav,header  nav li{
-			float: none;
-			text-align: center;
-			width: 100%;
-		}
-		header{
-			padding-bottom: 20PX;
-		}
-		#mybody #myprofile #myservice #myblog {
-			margin-top: 40px;
-			display: block;
-			width: 100%
-		}
-		.servicebox{
-			display: block;
-		}
+	grid-template-columns:  10% 45% auto;
+	grid-template-rows: 10% auto 8%;
+	grid-template-areas: 
+	 " header header header"
+	 " sect1 sect2 sect3"
+	 " footer footer footer"
 
+}
+	
 }
