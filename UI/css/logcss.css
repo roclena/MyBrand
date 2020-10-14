@@ -195,6 +195,21 @@ button:hover {
 #loginform{
 
 }
+#arlet{
+	text-align: center;
+	background:#4CAF50;
+	padding: 10px;
+	margin: 0px 500px 0px 500px;
+	display: none;
+}
+#arletfail{
+	text-align: center;
+	background:red;
+	width: 200px;
+	padding: 10px;
+	margin: 0px 500px 0px 500px;
+	display: none;
+}
 @media only screen and (min-width: 768px){
 	body{
 	margin: 0;

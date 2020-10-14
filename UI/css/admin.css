@@ -236,6 +236,11 @@ tr:nth-child(even) {
 	width: 300px;
 	height: 200px;
 }
+.dela{
+	background-color: red;
+	border-radius: 30px;
+	color: seagreen;
+}
 @media only screen and (min-width: 768px){
 	body{
 	margin: 0;
