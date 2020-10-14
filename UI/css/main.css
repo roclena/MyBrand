@@ -261,6 +261,13 @@ button:hover {
   float: left;
   width: 50%;
 }
+#arlet{
+	text-align: center;
+	background:#4CAF50;
+	padding: 10px;
+	
+	display: none;
+}
 @media only screen and (min-width: 768px){
 body{
 	margin: 0;
