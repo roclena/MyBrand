@@ -34,3 +34,8 @@ function savemessage(title, subject, PostedDate) {
 
     });
 }
+//retrieve//
+ref.on('value',gotData)
+function gotData(data){
+
+}

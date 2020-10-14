@@ -52,7 +52,7 @@
   },9000);
   
   window.location.href = "userprofile.html";
-  sessionStorage.setItem(uss);
+  localStorage.setItem("user", JSON.stringify(uss));
     }else{ 
       document.querySelector('#arletfail').style.display='block';
     setTimeout(function(){

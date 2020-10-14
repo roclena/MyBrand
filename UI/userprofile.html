@@ -14,10 +14,11 @@
 				<div id="menu">	
 				<div class="imga">
 						<img src="assets/Logo.png">
-				    </div>				
+					</div>	
+							
 					<nav class="imga">
 						<ul>
-							
+							<li  id="usname"></li>	
 							<li><a href="userprofile.html">Profile</a></li>
 							<li><a href="postedarticle.html">Article</a></li>
 							<li><a href="sendqueries.html">Queries</a></li>
@@ -46,9 +47,11 @@
 			</div>
 			<div class="prof" id="passupdate">
 				<h2>Change Password</h2>
-						<form action="#">    					
+						<form id="cuserpass" >    					
  						<input type="password" id="cpassword" name="cpassword" placeholder="Enter current  password">
-    					<input type="password" id="password" name="password" placeholder="Enter new  password">
+						<input type="password" id="password" name="password" placeholder="Enter new  password" 
+						 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+						title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
     					<input type="password" id="copassword" name="copassword" placeholder="confirm your password"> 			 
    						<div class="clearfix">   							
       					 <button type="reset" class="cancelbtn">Cancel</button>
@@ -69,5 +72,9 @@
 		<footer>
 			<p>copyright &copy 2020, Ngabonziza Roger Clement, All rights Reserved</p>
 		</footer>
+		<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-database.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>		
+		<script src="javascript/userlog.js"></script>
 	</body>
 </html>

@@ -12,7 +12,7 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-    var messagesref=firebase.database().ref('users'/email);
+    var messagesref=firebase.database().ref('users');
 	 
 	 var valideemail=false;
 document.getElementById('signupform').addEventListener('submit',submitform);
@@ -55,6 +55,7 @@ function submitform(e){
 		document.getElementById('password').value='';
 		document.getElementById('cpassword').value='';
 	},3000);
+	window.location.href = "login.html";
 	}
 }
 function savemessage(firstName,lastName, email,password){
