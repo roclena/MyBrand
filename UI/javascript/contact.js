@@ -35,13 +35,13 @@ function submitform(e){
 	var lastName=document.getElementById('lname').value;
     var email=document.getElementById('email').value;
     var emailbody=document.getElementById('subject').value;	
-    var date=new Date();
+    var date=Date();
 	var vemail=false;
 	validatemai(email);
 	 if(valideemail==false){
 		alert("Use valide email");
 	}else{
-	savemessage(firstName,lastName,email,emailbody,new date());
+	savemessage(firstName,lastName,email,emailbody,date);
 	document.querySelector('#arlet').style.display='block';
 	setTimeout(function(){
 		document.querySelector('#arlet').style.display='none';
@@ -60,6 +60,6 @@ firstName:firstName,
 lastName:lastName,
 email:email,
 message:emailbody,
-date:new Date()
+date:date
 	});
 }
