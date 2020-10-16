@@ -1,5 +1,9 @@
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional  
+var users = JSON.parse(localStorage.getItem('user'));
+if(users==null){
+  window.location.href = "login.html";
+}else{
 var firebaseConfig = {
   apiKey: "AIzaSyCttetuD8PgZQXFCiDQ7w0qcI4PfqknbVM",
   authDomain: "myweb-64a8a.firebaseapp.com",
@@ -13,7 +17,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 database = firebase.database();
-var users = JSON.parse(localStorage.getItem('user'));
+
 document.getElementById('usname').innerHTML = 'Welcome:' + (users.firstName).toUpperCase();
 
 
@@ -26,4 +30,9 @@ function upuserform(e) {
   var copassword = document.getElementById('copassword').Value;
 
   console.log(cupassword);
+}
+function logout(){
+  localStorage.clear();
+window.location.href = "login.html";
+}
 }
