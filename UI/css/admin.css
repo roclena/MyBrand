@@ -241,6 +241,12 @@ tr:nth-child(even) {
 	border-radius: 30px;
 	color: seagreen;
 }
+#arlet{
+	text-align: center;
+	background:#4CAF50;
+	padding: 10px;	
+	display: none;
+}
 @media only screen and (min-width: 768px){
 	body{
 	margin: 0;

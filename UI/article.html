@@ -19,7 +19,7 @@
 				</div>
 				<nav class="imga">
 					<ul>
-
+						<li  id="usname"></li>
 						<li><a href="dashboard.html">Profile</a></li>
 						<li><a href="article.html">Article</a></li>
 						<li><a href="queries.html">Queries</a></li>
@@ -46,9 +46,7 @@
 		<a href="queries.html">
 			<p class="dbutton">Queries</p>
 		</a>
-		<a href="index.html">
-			<p class="dbutton" id="logout">logout</p>
-		</a>
+		<a href="login.html" onclick="logout()"> <p class="dbutton" id="logout" >logout</p></a>
 
 	</section>
 	<section>
@@ -58,7 +56,7 @@
 				<input type="text" id="title" required>
 				<textarea id="subject" name="subject" placeholder="" style="padding: auto;"></textarea>
 				<input type="submit" value="post">
-				<input type="reset" id="dela" value="cancel">
+				
 			</form>
 
 		</div>
