@@ -20,8 +20,6 @@ else {
     var messagesref = firebase.database().ref('articles');
     //var users = JSON.parse(localStorage.getItem('user'));
     document.getElementById('usname').innerHTML = 'Welcome:' + (users.firstName).toUpperCase();
-
-    //retrieve//
     messagesref.on('value', gotData);
 
     function gotData(data) {
@@ -33,10 +31,14 @@ else {
             var date = article[k].PostedDate;
             var title = article[k].Title;
             var body = article[k].Body;
-            let pp = document.createElement('p');
-            pp.textContent = "ololol";
-            console.log(pp.textContent = "ololol");
-            div.appendChild(pp);
+            var table = document.getElementById('mytable'),
+            newRow = table.insertRow(table.length),
+                cell1 = newRow.insertCell(0),
+                cell2 = newRow.insertCell(1),
+                cell3 = newRow.insertCell(2);
+            cell1.innerHTML = date;
+            cell2.innerHTML = title;
+            cell3.innerHTML = body;
         }
 
     }
