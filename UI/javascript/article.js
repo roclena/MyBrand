@@ -20,15 +20,16 @@ if (users == null) {
 			},
 			body: JSON.stringify({
 				Title:title,
-				Subject:subject
-				
+				Subject:subject				
 			})
 		}).then(res=>res.json()).then(data=>{
             console.log(data);
             if(data.message==='Article Posted'){
             alert(data.message);
+            location.reload();
             }else if(data.status===400){
                 alert(data.message);
+                location.reload();
             }
         }).catch(err=>{
             console.log(err);
@@ -37,27 +38,44 @@ if (users == null) {
     }
    
     //retrieve//
-   /* messagesref.on('value', gotData);
-    function gotData(data) {
-        var article = data.val();
-        var keys = Object.keys(article);
-        for (var i = 0; i < keys.length; i++) {
-            var k = keys[i];
-            var date = article[k].PostedDate;
-            var title = article[k].Title;
-            var body = article[k].Body;
-            var table = document.getElementById('mytable'),
-                newRow = table.insertRow(table.length),
-                cell1 = newRow.insertCell(0),
-                cell2 = newRow.insertCell(1),
-                cell3 = newRow.insertCell(2);
-            cell1.innerHTML = date;
-            cell2.innerHTML = title;
-            cell3.innerHTML = body;
-        }
-    }
+ 
+        window.addEventListener('load', (event) => {   
+        fetch("https://rogerbrand.herokuapp.com/api/article")
+    .then(res => res.json())
+    .then(res => {
+        
+            console.log(res);
+            //var keys=res.Articles;
+            var keys = res.Articles;
+            console.log(keys);
+            for (var i = 0; i < keys.length; i++) {
+                
+                var date = res.Articles[i].CreateDate;
+                var title = res.Articles[i].Title;
+                var body = res.Articles[i].Subject;
+                var comment=res.Articles[i].comment;
+                var table = document.getElementById('mytable'),
+                    newRow = table.insertRow(table.length),
+                    cell1 = newRow.insertCell(0),
+                    cell2 = newRow.insertCell(1),
+                    cell3 = newRow.insertCell(2);
+                    cell4 = newRow.insertCell(3);
+                cell1.innerHTML = date;
+                cell2.innerHTML = title;
+                cell3.innerHTML = body;
+                cell4.innerHTML=comment;
+            }
+        
+       
+            
+       
+    }).catch(err=>{
+        console.log(err);
+    })
+})/*
+       
     //-------select---------
-    var table = document.getElementById('mytable'), rindex;
+    /*var table = document.getElementById('mytable'), rindex;
     for (var i = 0; i < table.rows.length; i++) {
         table.rows[i].onclick = function () {
             rindex = this.rowIndex;
