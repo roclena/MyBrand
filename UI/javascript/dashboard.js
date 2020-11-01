@@ -1,6 +1,6 @@
 var users = JSON.parse(localStorage.getItem('admin'));
 if (users == null) {
-  window.location.href = "AdminLogin.html";
+  window.location.href = "login.html";
 } else {
   var firebaseConfig = {
     apiKey: "AIzaSyCttetuD8PgZQXFCiDQ7w0qcI4PfqknbVM",

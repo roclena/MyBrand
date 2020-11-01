@@ -1,3 +1,7 @@
+var users = JSON.parse(localStorage.getItem('admin'));
+if (users == null) {
+  window.location.href = "login.html";
+} else {
 const token = localStorage.getItem('token');
 var valideemail = false;
 const submitform=document.getElementById('signupform');
@@ -83,5 +87,5 @@ submitform.addEventListener('submit', (e) => {
 	}
 })
 
-
+}
 

@@ -1,22 +1,9 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional  
+ 
 var users = JSON.parse(localStorage.getItem('admin'));
 if (users == null) {
     window.location.href = "login.html";
 } else {
-    var firebaseConfig = {
-        apiKey: "AIzaSyCttetuD8PgZQXFCiDQ7w0qcI4PfqknbVM",
-        authDomain: "myweb-64a8a.firebaseapp.com",
-        databaseURL: "https://myweb-64a8a.firebaseio.com",
-        projectId: "myweb-64a8a",
-        storageBucket: "myweb-64a8a.appspot.com",
-        messagingSenderId: "605134341919",
-        appId: "1:605134341919:web:df86688d8634978bbf122a",
-        measurementId: "G-XDE7ZTEJLS"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    var messagesref = firebase.database().ref('articles');
+    const token = localStorage.getItem('token');
     document.getElementById('usname').innerHTML = 'Admin :' + (users.firstName).toUpperCase();
     document.getElementById('articleform').addEventListener('submit', submitform);
 
@@ -24,23 +11,33 @@ if (users == null) {
         e.preventDefault();
         var title = document.getElementById('title').value;
         var subject = document.getElementById('subject').value;
-        var PostedDate = Date();
-        savemessage(title, subject, PostedDate);
-        document.getElementById('title').value = '';
-        document.getElementById('subject').value = '';
-
+        fetch("https://rogerbrand.herokuapp.com/api/article", {
+			method: "post",
+			headers: {
+				'Accept': 'application/json,*/*',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+			},
+			body: JSON.stringify({
+				Title:title,
+				Subject:subject
+				
+			})
+		}).then(res=>res.json()).then(data=>{
+            console.log(data);
+            if(data.message==='Article Posted'){
+            alert(data.message);
+            }else if(data.status===400){
+                alert(data.message);
+            }
+        }).catch(err=>{
+            console.log(err);
+        })
+      
     }
-    function savemessage(title, subject, PostedDate) {
-        var newmessref = messagesref.push();
-        newmessref.set({
-            Title: title,
-            Body: subject,
-            PostedDate: PostedDate
-
-        });
-    }
+   
     //retrieve//
-    messagesref.on('value', gotData);
+   /* messagesref.on('value', gotData);
     function gotData(data) {
         var article = data.val();
         var keys = Object.keys(article);
@@ -70,5 +67,5 @@ if (users == null) {
     function logout() {
         localStorage.clear();
         window.location.href = "login.html";
-    }
+    }*/
 }
