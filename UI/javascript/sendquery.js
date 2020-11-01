@@ -2,19 +2,7 @@ var users = JSON.parse(localStorage.getItem('user'));
 if (users == null) {
     window.location.href = "login.html";
 } else {
-    var firebaseConfig = {
-        apiKey: "AIzaSyCttetuD8PgZQXFCiDQ7w0qcI4PfqknbVM",
-        authDomain: "myweb-64a8a.firebaseapp.com",
-        databaseURL: "https://myweb-64a8a.firebaseio.com",
-        projectId: "myweb-64a8a",
-        storageBucket: "myweb-64a8a.appspot.com",
-        messagingSenderId: "605134341919",
-        appId: "1:605134341919:web:df86688d8634978bbf122a",
-        measurementId: "G-XDE7ZTEJLS"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    var messagesref = firebase.database().ref('email');
+    const token = localStorage.getItem('token');
     document.getElementById('usname').innerHTML = 'Welcome :' + (users.firstName).toUpperCase();
     document.getElementById('queryform').addEventListener('submit', submitform);
     var firstName = users.firstName;
@@ -26,24 +14,43 @@ if (users == null) {
 
     function submitform(e) {
         e.preventDefault();
+        var body = document.getElementById('body').value;
         var subject = document.getElementById('subject').value;
         var datee = Date();
-        savemessage(firstName, lastname, email, subject, datee);       
-        document.querySelector('#arlet').style.display = 'block';
-        setTimeout(function () {
-            document.querySelector('#arlet').style.display = 'none'; 
-            document.getElementById('subject').value = '';
-
-        }, 3000);
+        fetch("https://rogerbrand.herokuapp.com/api/query", {
+			method: "post",
+			headers: {
+				'Accept': 'application/json,*/*',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+			},
+			body: JSON.stringify({
+                senderFirstname:firstName,
+                senderLastName:lastname,
+                senderEmail:email,	
+                Subject:subject,
+                Mail:body			
+			})
+		}).then(res=>res.json()).then(data=>{
+            console.log(data);
+            if(data.message==='query sent !!!!'){
+           // alert(data.message);
+            document.querySelector('#arlet').style.display = 'block';
+            setTimeout(function () {
+                document.querySelector('#arlet').style.display = 'none'; 
+                document.getElementById('subject').value = '';
+                document.getElementById('body').value = '';
+    
+            }, 3000);
+            
+            }else if(data.status===400){
+                alert(data.message);
+                
+            }
+        }).catch(err=>{
+            console.log(err);
+        })
+      
     }
-    function savemessage(firstName, lastname, email, subject, datee) {
-        var newmessref = messagesref.push();
-        newmessref.set({
-            firstName: firstName,
-            lastName: lastname,
-            email: email,
-            message: subject,
-            date: datee
-        });
-    }
+  
 }

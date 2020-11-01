@@ -72,18 +72,5 @@ if (users == null) {
     }).catch(err=>{
         console.log(err);
     })
-})/*
-       
-    //-------select---------
-    /*var table = document.getElementById('mytable'), rindex;
-    for (var i = 0; i < table.rows.length; i++) {
-        table.rows[i].onclick = function () {
-            rindex = this.rowIndex;
-            console.log(rindex);
-        }
-    }
-    function logout() {
-        localStorage.clear();
-        window.location.href = "login.html";
-    }*/
+})
 }
