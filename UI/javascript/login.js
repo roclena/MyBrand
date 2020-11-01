@@ -16,7 +16,7 @@ formlogin.addEventListener('submit', (e) => {
       password: passwordf
     })
   }).then(res => res.json()).then(data => {
-    console.log('data are::'+data);
+    console.log('data are::' + data);
     if (data.data.Role === 'user') {
       document.querySelector('#arlet').style.display = 'block';
       setTimeout(function () {
@@ -39,16 +39,15 @@ formlogin.addEventListener('submit', (e) => {
       localStorage.setItem("admin", JSON.stringify(data.data));
       return window.location.href = "dashboard.html";
 
-    }  
-  
-  }).catch(err=>{
-    document.querySelector('#arletfail').style.display = 'block';
-    setTimeout(function () {
-      document.querySelector('#arletfail').style.display = 'none';
+    }
+
+  }).catch(err => {
+    console.log(err);
+    alert("invalid Email or password");
+    setTimeout(() => {
       document.getElementById('email').value = '';
       document.getElementById('password').value = '';
-    }, 9000);
-  
+    }, 1000);
 
   })
 

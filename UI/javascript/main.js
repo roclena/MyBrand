@@ -1,21 +1,5 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional  
-var firebaseConfig = {
-	apiKey: "AIzaSyCttetuD8PgZQXFCiDQ7w0qcI4PfqknbVM",
-	authDomain: "myweb-64a8a.firebaseapp.com",
-	databaseURL: "https://myweb-64a8a.firebaseio.com",
-	projectId: "myweb-64a8a",
-	storageBucket: "myweb-64a8a.appspot.com",
-	messagingSenderId: "605134341919",
-	appId: "1:605134341919:web:df86688d8634978bbf122a",
-	measurementId: "G-XDE7ZTEJLS"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-var messagesref = firebase.database().ref('users');
-
 var valideemail = false;
-document.getElementById('signupform').addEventListener('submit', submitform);
+const submitform=document.getElementById('signupform');
 var email = document.getElementById('email').value;
 function validatemai(email) {
 	var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -26,10 +10,9 @@ function validatemai(email) {
 		alert("You have entered an invalid email address!");
 		valideemail = false;
 	}
-
 }
 
-function submitform(e) {
+submitform.addEventListener('submit', (e) => {
 	e.preventDefault();
 	var firstName = document.getElementById('fname').value;
 	var lastName = document.getElementById('lname').value;
@@ -43,27 +26,64 @@ function submitform(e) {
 	} else if (valideemail == false) {
 		alert("Use valide email");
 	} else {
-		savemessage(firstName, lastName, email, password);
-		document.querySelector('#arlet').style.display = 'block';
-		setTimeout(function () {
-			document.querySelector('#arlet').style.display = 'none';
-			document.getElementById('fname').value = '';
-			document.getElementById('lname').value = '';
-			document.getElementById('email').value = '';
-			document.getElementById('password').value = '';
-			document.getElementById('cpassword').value = '';
-		}, 3000);
+		fetch("https://rogerbrand.herokuapp.com/api/signup", {
+			method: "post",
+			headers: {
+				'Accept': 'application/json,*/*',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				firstName:firstName,
+				lastName:lastName,
+				email:email,
+				password:password
+			})
+		}).then(res=>res.json()).then(data=>{
+			console.log(data);
+			if(data.message==='Acount created'){
+			document.querySelector('#arlet').style.display = 'block';
+			setTimeout(()=> {
+				document.querySelector('#arlet').style.display = 'none';
+				document.getElementById('fname').value = '';
+				document.getElementById('lname').value = '';
+				document.getElementById('email').value = '';
+				document.getElementById('password').value = '';
+				document.getElementById('cpassword').value = '';
+			}, 3000);
 		window.location.href = "login.html";
+			}else if(data==='Acount already exist'){
+				alert('Acount already exist');
+				setTimeout(()=> {
+					document.querySelector('#arlet').style.display = 'none';
+					document.getElementById('fname').value = '';
+					document.getElementById('lname').value = '';
+					document.getElementById('email').value = '';
+					document.getElementById('password').value = '';
+					document.getElementById('cpassword').value = '';
+				}, 3000);
+			}else if(data.status==400){
+				alert(data.message);
+				setTimeout(()=> {
+					document.querySelector('#arlet').style.display = 'none';
+					document.getElementById('fname').value = '';
+					document.getElementById('lname').value = '';
+					document.getElementById('email').value = '';
+					document.getElementById('password').value = '';
+					document.getElementById('cpassword').value = '';
+				}, 3000);
+			}
+		}).catch(err=>{
+
+		})
+		/*document.querySelector('#arlet').style.display = 'block';
+			setTimeout(function() {
+				document.querySelector('#arlet').style.display = 'none';
+				document.getElementById('fname').value = '';
+				document.getElementById('lname').value = '';
+				document.getElementById('email').value = '';
+				document.getElementById('password').value = '';
+				document.getElementById('cpassword').value = '';
+			}, 3000);
+		window.location.href = "login.html";*/
 	}
-}
-function savemessage(firstName, lastName, email, password) {
-	var newmessref = messagesref.push();
-	newmessref.set({
-		firstName: firstName,
-		lastName: lastName,
-		email: email,
-		password: password,
-
-
-	});
-}
+})
