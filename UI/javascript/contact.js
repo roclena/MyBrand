@@ -1,18 +1,4 @@
-// Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional  
-  var firebaseConfig = {
-    apiKey: "AIzaSyCttetuD8PgZQXFCiDQ7w0qcI4PfqknbVM",
-    authDomain: "myweb-64a8a.firebaseapp.com",
-    databaseURL: "https://myweb-64a8a.firebaseio.com",
-    projectId: "myweb-64a8a",
-    storageBucket: "myweb-64a8a.appspot.com",
-    messagingSenderId: "605134341919",
-    appId: "1:605134341919:web:df86688d8634978bbf122a",
-    measurementId: "G-XDE7ZTEJLS"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-    var messagesref=firebase.database().ref('email');
+
     document.getElementById('contactform').addEventListener('submit',submitform);
     var email=document.getElementById('email').value;
 function validatemai(email){
@@ -31,35 +17,43 @@ valideemail=false;
  
 function submitform(e){
 	e.preventDefault();
-	var firstName=document.getElementById('fname').value;	
-	var lastName=document.getElementById('lname').value;
-    var email=document.getElementById('email').value;
-    var emailbody=document.getElementById('subject').value;	
-    var date=Date();
-	var vemail=false;
-	validatemai(email);
-	 if(valideemail==false){
-		alert("Use valide email");
-	}else{
-	savemessage(firstName,lastName,email,emailbody,date);
-	document.querySelector('#arlet').style.display='block';
-	setTimeout(function(){
-		document.querySelector('#arlet').style.display='none';
-		document.getElementById('fname').value='';
-		document.getElementById('lname').value='';
-		document.getElementById('email').value='';
-		document.getElementById('subject').value='';
+	let firstName=document.getElementById('fname').value;
+	let lastname=document.getElementById('lname').value;
+	let email=document.getElementById('email').value;
+	let body = document.getElementById('body').value;
+	let subject = document.getElementById('subject').value;	
+	fetch("https://rogerbrand.herokuapp.com/api/queri", {
+		method: "post",
+		headers: {
+			'Accept': 'application/json,*/*',
+			'Content-Type': 'application/json'
+			
+		},
+		body: JSON.stringify({
+			senderFirstname:firstName,
+			senderLastName:lastname,
+			senderEmail:email,	
+			Subject:subject,
+			Mail:body,		
+		}),
+	}).then(res=>res.json()).then(data=>{
+		console.log(data);
+		if(data.message==='query sent !!!!'){
+	   // alert(data.message);
+		document.querySelector('#arlet').style.display = 'block';
+		setTimeout(function () {
+			document.querySelector('#arlet').style.display = 'none'; 
+			document.getElementById('subject').value = '';
+			document.getElementById('body').value = '';
+
+		}, 3000);
 		
-	},3000);
-	}
-}
-function savemessage(firstName,lastName, email,emailbody,date){
-	var newmessref=messagesref.push();
-	newmessref.set({
-firstName:firstName,
-lastName:lastName,
-email:email,
-message:emailbody,
-date:date
-	});
-}
+		}else if(data.status===400){
+			alert(data.message);
+			
+		}
+	}).catch(err=>{
+		console.log(err);
+	})
+  
+}	
