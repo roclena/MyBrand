@@ -2,55 +2,55 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional  
 var users = JSON.parse(localStorage.getItem('admin'));
 if (users == null) {
-  window.location.href = "AdminLogin.html";
+    window.location.href = "login.html";
 } else {
-var firebaseConfig = {
-    apiKey: "AIzaSyCttetuD8PgZQXFCiDQ7w0qcI4PfqknbVM",
-    authDomain: "myweb-64a8a.firebaseapp.com",
-    databaseURL: "https://myweb-64a8a.firebaseio.com",
-    projectId: "myweb-64a8a",
-    storageBucket: "myweb-64a8a.appspot.com",
-    messagingSenderId: "605134341919",
-    appId: "1:605134341919:web:df86688d8634978bbf122a",
-    measurementId: "G-XDE7ZTEJLS"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-document.getElementById('usname').innerHTML = 'Admin :' + (users.firstName).toUpperCase();
-var messagesref = firebase.database().ref('email');
+    const token = localStorage.getItem('token');
+    window.addEventListener('load', (event) => {
+        fetch("https://rogerbrand.herokuapp.com/api/query", {
+            method: "get",
+            headers: {
+                'Accept': 'application/json,*/*',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        })
+            .then(res => res.json())
+            .then(res => {
 
-messagesref.on('value', gotData);
-function gotData(data) {
-    var mess = data.val();
-    var keys = Object.keys(mess);
+                console.log(res);
+                //var keys=res.Articles;
+                var keys = res.queries;
+                console.log(keys);
+                for (var i = 0; i < keys.length; i++) {
 
-    var row;
-    var cell;
-
-    for (var i = 0; i < keys.length; i++) {
-        var k = keys[i];
-        var date = mess[k].date;
-        var email = mess[k].email;
-        var firstName = mess[k].firstName;
-        var lastname = mess[k].lastName;
-        var message = mess[k].message;
-        var table = document.getElementById('contacttable'),
-            newRow = table.insertRow(table.length),
-            cell1 = newRow.insertCell(0),
-            cell2 = newRow.insertCell(1),
-            cell3 = newRow.insertCell(2);
-        cell4 = newRow.insertCell(3);
-        cell5 = newRow.insertCell(4);
-        cell1.innerHTML = i + 1;
-        cell2.innerHTML = date;
-        cell3.innerHTML = email;
-        cell4.innerHTML = (firstName + "  " + lastname).toUpperCase();
-        cell5.innerHTML = message;
-    }
+                    var date = res.queries[i].CreateDate;
+                    var email=res.queries[i].senderEmail;
+                    var name = res.queries[i].senderFirstName + '' + res.queries[i].senderLastName;
+                    var Subject = res.queries[i].Subject;
+                    var body = res.queries[i].Mail;
+                    var table = document.getElementById('contacttable'),
+                    newRow = table.insertRow(table.length),
+                    cell1 = newRow.insertCell(0),
+                     cell2 = newRow.insertCell(1),
+                     cell3 = newRow.insertCell(2);
+                    cell4 = newRow.insertCell(3);
+                    cell5 = newRow.insertCell(4);
+                    cell6 = newRow.insertCell(5);
+                    cell1.innerHTML = i + 1;
+                    cell2.innerHTML = date
+                    cell3.innerHTML = email;
+                    cell4.innerHTML = name.toUpperCase();
+                    cell5.innerHTML = Subject;
+                    cell6.innerHTML=body;
+                }
+            }).catch(err => {
+                console.log(err);
+            })
+    })
 }
 function logout() {
     localStorage.clear();
     window.location.href = "login.html";
 }
-}
+
 
