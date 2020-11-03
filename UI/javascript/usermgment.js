@@ -50,7 +50,7 @@ formdeluser.addEventListener('submit', (e) => {
             headers: {
                 'Accept': 'application/json,*/*',
                 'Content-Type': 'application/json',
-                
+                'Authorization': `Bearer ${token}`
             },
            
         }).then(res=>res.json()).then(message=>{
