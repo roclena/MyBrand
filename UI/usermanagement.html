@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/admin.css">
 </head>
 
-<body id="opop">
+<body>
 	<header></header>
 	<header>
 		<div class="container">
@@ -19,8 +19,8 @@
 				</div>
 				<nav class="imga">
 					<ul>
-						<li  id="usname"></li>
-						<li><a href="dashboard.html">Profile</a></li>
+						<li id="usname"></li>
+						<li><a href="Adminprofile.html">Profile</a></li>
 						<li><a href="article.html">Article</a></li>
 						<li><a href="queries.html">Queries</a></li>
 
@@ -40,35 +40,41 @@
 		<a href="Adminprofile.html">
 			<p class="dbutton">Profile</p>
 		</a>
-		<a href="usermanagement.html"><p class="dbutton">Users</p></a>
+		<a href="usermanagement.html">
+			<p class="dbutton">Users</p>
+		</a>
 		<a href="article.html">
 			<p class="dbutton">Article</p>
 		</a>
 		<a href="queries.html">
 			<p class="dbutton">Queries</p>
 		</a>
-		<a href="SignupAdmin.html"><p class="dbutton">New Acount</p></a> 
-		<a href="login.html" onclick="logout()"> <p class="dbutton" id="logout" >logout</p></a>
+		<a href="SignupAdmin.html">
+			<p class="dbutton">New Acount</p>
+		</a>
+		<a href="login.html" onclick="logout()">
+			<p class="dbutton" id="logout">logout</p>
+		</a>
 
 	</section>
 	<section>
 		<div id="articlepost">
-			<form id="articleform">
-				<h2>Article Title</h2>
-				<input type="text" id="title" required>
-				<textarea id="subject" name="subject" placeholder="" style="padding: auto;"></textarea>
-				<input type="submit" value="post">
+			<form id="userform">
+				<h2>User Management</h2>			
 				
+				<input type="text" placeholder="email" id="email" >
+				<button type="submit">Delete</button>				
 			</form>
 
 		</div>
 		<div id="articleview">
-			<table id="mytable">
+			<table id="usertable">
 				<tr>
-					<th>Date</th>
-					<th>Title</th>					
-					<th>Comment</th>
-					
+					<th>No</th>
+					<th>Names</th>
+					<th>Email</th>
+					<th>Role</th>
+
 				</tr>
 
 			</table>
@@ -80,6 +86,6 @@
 		<p>copyright &copy 2020, Ngabonziza Roger Clement, All rights Reserved</p>
 	</footer>
 </body>
-<script src="javascript/article.js"></script>
+<script src="javascript/usermgment.js"></script>
 
 </html>

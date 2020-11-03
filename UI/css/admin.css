@@ -172,15 +172,17 @@ input[type=text], textarea {
   border: none;
   border-radius: 50px;
   cursor: pointer;
+  width: 20%;
 }
 table {
-	border: solid;
-  border-collapse: collapse;
-  width: 100%;
+	border:unset;
+  border-collapse:collapse;
+  width: 90%;
+  margin:auto;
 }
 
 th, td {
-	border: solid;
+	border: unset;
   border-collapse: collapse;
   text-align: left;
   padding: 8px;
@@ -193,9 +195,7 @@ th{
 	border-left: none;
 	padding: 0px;
 }
-table input{
-	width: 100px;
-}
+
 table .delarticle input{
    background-color: red;
    color: blue;
